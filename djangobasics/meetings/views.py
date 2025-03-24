@@ -5,7 +5,7 @@ from meetingplaner.models import Meetings
 # Create your views here.
 def welcome(request):
     return render(request,"meetings/welcome.html",
-        {"num_meetings": Meetings.objects.count()})
+        {"meetings": Meetings.objects.all()})
 
 def about(request):
     return HttpResponse("I am Divya and I am learning Django Fundamentals from PluralSight.")
