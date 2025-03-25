@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome!</title>
-    <link rel="stylesheet" href="/static/meetings/style.css">
-</head>
-<body>
+
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Welcome {% endblock %}
+
+{% block content %}
     <h1>Welcome to the Meetings App!</h1>
     <p>
         This is the demo application for the course
@@ -14,6 +12,9 @@
         on <a href="https://www.pluralsight.com">
         Pluralsight</a>.
     </p>  
+
+    <img src="{% static 'meetings/Divya.jpg' %}" width="100px">
+
     <h2>Meetings</h2>
     <ul>
         {% for meeting in meetings %}
@@ -22,8 +23,8 @@
                     {{meeting.title}}
                 </a>
             </li>
-            {% endfor %}
+        {% endfor %}
     </ul>
     <a href="{% url 'rooms' %}"> Rooms list </a>
-</body>
-</html>
+{% endblock %}
+

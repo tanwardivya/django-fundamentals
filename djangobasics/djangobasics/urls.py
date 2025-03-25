@@ -25,5 +25,6 @@ urlpatterns = [
     path('',welcome, name="welcome"),
     path('about', about),
     path('meetingplaner/', include('meetingplaner.urls')),
+    
    
 ]
