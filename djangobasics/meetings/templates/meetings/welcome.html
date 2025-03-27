@@ -7,24 +7,25 @@
 {% block content %}
     <h1>Welcome to the Meetings App!</h1>
     <p>
-        This is the demo application for the course
-        <em>Django: The Django Fundamental Course</em>.
+        This is the demo application for 
+        <em>Django: The Django Fundamental Course</em>
         on <a href="https://www.pluralsight.com">
         Pluralsight</a>.
     </p>  
+    {% if user.is_authenticated %}
+        <img src="{% static 'meetings/Divya.jpg' %}" width="100px">
 
-    <img src="{% static 'meetings/Divya.jpg' %}" width="100px">
-
-    <h2>Meetings</h2>
-    <ul>
-        {% for meeting in meetings %}
-            <li>
-                <a href="{% url 'detail' meeting.id %}"> 
-                    {{meeting.title}}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'rooms' %}"> Rooms list </a>
+        <h2>Meetings</h2>
+        <ul>
+            {% for meeting in meetings %}
+                <li>
+                    <a href="{% url 'detail' meeting.id %}"> 
+                        {{meeting.title}}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'rooms' %}"> Rooms list </a>
+    {% endif %}
 {% endblock %}
 
